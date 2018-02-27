@@ -28,12 +28,10 @@ Option | Description
 ## Requirements:
 * **Python 2.7.***
 
-* **Requests** You can find it [Here](https://pypi.python.org/pypi/requests)
-<br>
+* **Requests** You can find it [Here](https://pypi.python.org/pypi/requests)<br>
 **How To Install**: `pip install requests`
 
-* **BeautifulSoup4** You can find it [Here](https://pypi.python.org/pypi/beautifulsoup4)
-<br>
+* **BeautifulSoup4** You can find it [Here](https://pypi.python.org/pypi/beautifulsoup4)<br>
 **How To Install**: `pip install beautifulsoup4`
 
 
