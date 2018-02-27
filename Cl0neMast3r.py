@@ -140,7 +140,7 @@ class Tool:  # This class is responsible about Tools
 						return
 				for p in xrange(1, pages + 1):  # Shows the found tools in the found pages
 					s = BeautifulSoup(get("https://github.com/search?p=" + str(p) + "&q=" + tool).text, 'html.parser')
-					for t in [str(x["href"]) for x in s.find_all(class_="v-align-middle")]:
+					for t in [str(x["href"]) for x in s.find_all('a', class_="v-align-middle")]:
 						foundTools.append('https://github.com' + t)
 				print red + "================================================================================" + end
 				for tool in foundTools:
