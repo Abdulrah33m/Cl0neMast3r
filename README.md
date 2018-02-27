@@ -9,7 +9,7 @@ All this and more you can do with Clone master.
 Clone Master was mainly made for **penetration testers** and **bug hunters** :wink:
 
 ## Screenshots:
-![macOs](https://github.com/Abdulraheem30042/Cl0neMast3r/ScreenShots/s1.jpg)
+![macOS](https://i.imgur.com/jySH8A2.jpg)
 
 ## Options:
 Cl0neMast3r provides you with a lot of options:
@@ -35,6 +35,8 @@ Option | Description
 * **BeautifulSoup4** You can find it [Here](https://pypi.python.org/pypi/beautifulsoup4)
 <br>
 **How To Install**: `pip install beautifulsoup4`
+
+
 ## Installation:
 ```
 git clone https://github.com/Abdulraheem30042/Cl0neMast3r.git
