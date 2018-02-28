@@ -120,7 +120,7 @@ class Tool:  # This class is responsible about Tools
 			elif not Tool.check(url):
 				raise Exception("Tool is not available")
 			resource.write(url + "\n")
-			print green + "New tool has been added" + end  # + ": " + Tool(url, True).name
+			print green + "New tool has been added" + end
 		except Exception, err:
 			print red + str(err) + end
 
@@ -185,7 +185,8 @@ class Tool:  # This class is responsible about Tools
 	@classmethod
 	def update(cls):  # Update all tools on the list
 		try:
-			x = input("[{0}1{1}] Update all tools\n[{0}2{1}] Update old tools: ".format(red, end))
+			print "[{0}1{1}] Update all tools\n[{0}2{1}] Update old tools".format(red, end)
+			x = input("Choose 1 or 2{0}:{1} ".format(red, end))
 		except:
 			print red + "Wrong choice!" + end
 			return
@@ -201,6 +202,7 @@ class Tool:  # This class is responsible about Tools
 			if tool.clone("/tmp/"):
 				tool.copy()
 				tool.remove("/tmp/")
+		print green + "\nAll tools are uptodate" + end
 		print red + "================================================================================" + end
 
 	@classmethod

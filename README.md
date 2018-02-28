@@ -20,7 +20,7 @@ Option | Description
 **F**  | **F**ind a tool on GitHub
 **R**  | **R**einstall your tools
 **U**  | **U**pdate your tools
-**S**  | **D**isplay information about your favorite tools
+**S**  | Di**s**play information about your favorite tools
 **D**  | **D**elete the list of tools
 **M**  | I**m**port your favorite tools
 **X**  | E**x**port your tools to HTML
@@ -38,6 +38,8 @@ Option | Description
 ## Installation:
 ```
 git clone https://github.com/Abdulraheem30042/Cl0neMast3r.git
+cd Cl0neMast3r
+pip install -r requirements.txt
 ```
 
 ## Environment:
