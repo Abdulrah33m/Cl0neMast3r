@@ -52,20 +52,19 @@ class Tool:  # This class is responsible about Tools
 		if not os.system("git clone -q " + self.url + " " + (path[0] if path else "")+self.name):
 			print green + "Ok" + end
 			open((path[0] if path else "")+self.name + "/install", 'w').write(Tool.strfTime(datetime.now()))
-			return True
 		else:
 			print red + "Error" + end
-			return False
 
 	def remove(self, *path):  # Delete the passed directory
-		if path:
-			print "Deleting the tool from tmp : ",
-		else:
-			print "Deleting the previous version of " + self.name + " : ",
-		if not os.system("rm -rf " + (path[0] if path else "")+self.name):
-			print green + "Ok" + end
-		else:
-			print red + "Error" + end
+		if Tool.exists((path[0] if path else "")+self.name):
+			if path:
+				print "Deleting the tool from tmp : ",
+			else:
+				print "Deleting the previous version of " + self.name + " : ",
+			if not os.system("rm -rf " + (path[0] if path else "")+self.name):
+				print green + "Ok" + end
+			else:
+				print red + "Error" + end
 
 	def copy(self):  # Copy installed tool from tmp to current directory
 		print "Copying the tool : ",
@@ -199,10 +198,11 @@ class Tool:  # This class is responsible about Tools
 			return
 		for tool in listToUpdate:
 			print green + "[" + tool.name + "]" + end
-			if tool.clone("/tmp/"):
-				tool.copy()
-				tool.remove("/tmp/")
-		print green + "\nAll tools are uptodate" + end
+			tool.remove("/tmp/")
+			tool.clone("/tmp/")
+			tool.copy()
+			tool.remove("/tmp/")
+		print green + "\nAll tools have been updated" + end
 		print red + "================================================================================" + end
 
 	@classmethod
@@ -211,6 +211,7 @@ class Tool:  # This class is responsible about Tools
 			print green + "[" + tool.name + "]" + end
 			tool.remove()
 			tool.clone()
+		print green + "\nAll tools have been reinstalled" + end
 		print red + "================================================================================" + end
 
 	@classmethod
