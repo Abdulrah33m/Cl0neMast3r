@@ -50,7 +50,7 @@ Cl0neMast3r has been tested on:
 * **Mint**
 
 ## Version:
-Current version: **Beta**
+Current version: **1.0**
 
 ## Coder:
 Coded with **love** and **bugs** by [**Abdulraheem Khaled**](https://twitter.com/abdulrah33mk) :heart:
