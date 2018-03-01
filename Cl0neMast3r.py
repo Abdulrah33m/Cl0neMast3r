@@ -197,22 +197,22 @@ class Tool:  # This class is responsible about Tools
 			print red + "Wrong choice!" + end
 			return
 		for tool in listToUpdate:
-			print green + "[" + tool.name + "]" + end
+			print green + "\n[" + tool.name + "]" + end
 			tool.remove("/tmp/")
 			tool.clone("/tmp/")
 			tool.copy()
 			tool.remove("/tmp/")
+			print red + "================================================" + end
 		print green + "\nAll tools have been updated" + end
-		print red + "================================================================================" + end
 
 	@classmethod
 	def reinstall(cls):  # Reinstall all tools on the list
 		for tool in cls.list:
-			print green + "[" + tool.name + "]" + end
+			print green + "\n[" + tool.name + "]" + end
 			tool.remove()
 			tool.clone()
+			print red + "================================================" + end
 		print green + "\nAll tools have been reinstalled" + end
-		print red + "================================================================================" + end
 
 	@classmethod
 	def importToolsHtml(cls):  # Import tools from HTML page
@@ -295,7 +295,7 @@ if __name__ == '__main__':  # Main method
 			while r == "y":
 				wait()
 				Tool.add(raw_input("Enter the new tools GitHub link" + red + ": " + end).lower())
-				r = raw_input("Add a new tool (Yes or No): ").lower()
+				r = raw_input("Add a new tool ({0}Y{1} or {0}N{1}): ".format(red, end)).lower()
 		# ---------------------------------------------------------------------------------
 		elif choice == 's':
 			print "[" + red + "Displaying your tool" + end + "]"
