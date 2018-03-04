@@ -141,9 +141,7 @@ class Tool:  # This class is responsible about Tools
 					s = BeautifulSoup(get("https://github.com/search?p=" + str(p) + "&q=" + tool).text, 'html.parser')
 					for t in [str(x["href"]) for x in s.find_all('a', class_="v-align-middle")]:
 						foundTools.append('https://github.com' + t)
-				print red + "================================================================================" + end
-				for tool in foundTools:
-					Tool(tool).printInfo()
+						Tool(foundTools[-1]).printInfo()
 				print "I found " + red + str(len(foundTools)) + end + " tools"
 				try:
 					choice = input("Which one do you want{0}:{1} ".format(red, end))
