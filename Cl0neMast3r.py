@@ -199,7 +199,7 @@ class Tool:  # This class is responsible about Tools
 		if x == 1:
 			listToUpdate = cls.list
 		elif x == 2:
-			listToUpdate = [tool for tool in cls.list if not tool.isUpToDate]
+			listToUpdate = [tool for tool in cls.list if tool.available and not tool.isUpToDate]
 		else:
 			print red + 'Wrong choice!' + end
 			return
