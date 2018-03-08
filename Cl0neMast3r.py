@@ -1,4 +1,4 @@
-# coding: utf-8
+oovin# coding: utf-8
 # Coded with love and bugs by Abdulraheem Khaled @abdulrah33mk
 
 import os
@@ -47,8 +47,8 @@ class Tool:  # This class is responsible about Tools
 		return 'No description!' if d is None else d
 
 	def lastUpdate(self):  # Returns last update for the tool on GitHub
-		req = get('https://api.github.com/repos' + self.url[18:] + '?access_token=' + Tool.access_token)
-		return self.strpTime(str(req.json()['pushed_at'].replace('T', ' ')[:-1]))
+		u = get('https://api.github.com/repos' + self.url[18:] + '?access_token=' + Tool.access_token).json()['pushed_at']
+		return self.strpTime(str(u.replace('T', ' ')[:-1]))
 
 	def lastInstall(self):  # Returns last installation for the tool on PC
 		if self.exists(self.name + '/install'):
@@ -58,19 +58,19 @@ class Tool:  # This class is responsible about Tools
 
 	def clone(self, *path):  # Clone the tool to the path argument
 		print 'Installing: ' + self.name + ': ',
-		if not os.system('git clone -q ' + self.url + ' ' + (path[0] if path else '') + self.name):
+		if not os.system('git clone -q ' + self.url + ' ' + ('/tmp/' if path else '') + self.name):
 			print green + 'Ok' + end
-			open((path[0] if path else '') + self.name + '/install', 'w').write(Tool.strfTime(datetime.now()))
+			open(('/tmp/' if path else '') + self.name + '/install', 'w').write(Tool.strfTime(datetime.now()))
 		else:
 			print red + 'Error' + end
 
 	def remove(self, *path):  # Delete the passed directory
-		if Tool.exists((path[0] if path else '' + self.name)):
+		if Tool.exists(('/tmp/' if path else '' + self.name)):
 			if path:
 				print 'Deleting the tool from tmp : ',
 			else:
 				print 'Deleting the previous version of ' + self.name + ': ',
-			if not os.system('rm -rf ' + (path[0] if path else '') + self.name):
+			if not os.system('rm -rf ' + ('/tmp/' if path else '') + self.name):
 				print green + 'Ok' + end
 			else:
 				print red + 'Error' + end
@@ -103,7 +103,7 @@ class Tool:  # This class is responsible about Tools
 	@staticmethod
 	def getUrl(url):
 		url = search('https://github.com(/\w+([-._]?\w+)+){2}[^/\.git]', url.lower())
-		return (url.group() if url != None else url)
+		if url: return url.group()
 
 	@staticmethod
 	def exists(path):  # Check if path exists or not

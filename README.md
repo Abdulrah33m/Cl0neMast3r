@@ -48,10 +48,11 @@ pip install -r requirements.txt
 Cl0neMast3r has been tested on:
 * **macOS High Sierra**
 * **Kali Linux**
-* **Mint**
+* **Linux Mint**
 
 ## Version:
-Current version: **1.0**
+Current version: **1.0**<br>
+You can check versions history from [Here](https://github.com/Abdulraheem30042/Cl0neMast3r/blob/master/Changelog.md)
 
 ## Coder:
 Coded with **love** and **bugs** by [**Abdulraheem Khaled**](https://twitter.com/abdulrah33mk) :heart:
