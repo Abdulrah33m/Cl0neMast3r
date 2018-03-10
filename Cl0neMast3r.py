@@ -102,8 +102,11 @@ class Tool:  # This class is responsible about Tools
 	# --------------
 	@staticmethod
 	def getUrl(url):
-		url = search('https://github.com(/\w+([-._]?\w+)+){2}[^/\.git]', url.lower())
-		if url: return url.group()
+		url = search('https:\/\/github\.com(\/\w+([-._]?\w*)+){2}', url.lower())
+		if url:
+			url = str(url.group())
+			for x in ['.git', '/']: url = url[:None if not url.endswith(x) else -len(x)]
+			return url
 
 	@staticmethod
 	def exists(path):  # Check if path exists or not
