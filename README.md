@@ -46,13 +46,13 @@ pip install -r requirements.txt
 ## Docker:
 Docker Hub:
 ```
-docker run --rm -it -v clonemast3r:/opt philippbehmer/cl0nemast3r
+docker run --rm -it -v cl0nemast3r:/opt philippbehmer/cl0nemast3r
 ```
 
 Manual build and run:
 ```
-docker build -t clonemast3r .
-docker run --rm -it --name clonemast3r -v clonemast3r:/opt clonemast3r
+docker build -t cl0nemast3r .
+docker run --rm -it --name cl0nemast3r -v cl0nemast3r:/opt clonemast3r
 ```
 
 
