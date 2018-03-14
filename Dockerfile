@@ -1,11 +1,10 @@
-FROM ubuntu:latest
-LABEL maintainer "Philipp Behmer - https://github.com/PhilippBehmer"
+FROM ubuntu:16.04
+LABEL maintainer="Philipp Behmer - https://github.com/PhilippBehmer"
 
 
 # System update and install tools
 RUN apt-get update \
- && apt-get upgrade -y --no-install-recommends \
- && apt-get install git python-pip -y \
+ && apt-get install git python-pip -y --no-install-recommends \
  && apt-get autoremove -y \
  && apt-get clean \
  && rm -rvf /var/lib/apt/lists/*
