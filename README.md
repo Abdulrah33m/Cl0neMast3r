@@ -43,6 +43,19 @@ cd Cl0neMast3r/
 pip install -r requirements.txt
 ```
 
+## Docker:
+Docker Hub:
+```
+docker run --rm -it -v cl0nemast3r:/opt philippbehmer/cl0nemast3r
+```
+
+Manual build and run:
+```
+docker build -t cl0nemast3r .
+docker run --rm -it --name cl0nemast3r -v cl0nemast3r:/opt clonemast3r
+```
+
+
 ## Environment:
 `Doesn't support Windows right now :(`<br>
 Cl0neMast3r has been tested on:
